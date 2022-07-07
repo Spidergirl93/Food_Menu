@@ -19,7 +19,7 @@ const Header = (props) => {
         <Fragment>
             <header className={styles.header}>
                 <h1>YumYum</h1>
-                <HeaderButton>My Order</HeaderButton>
+                <HeaderButton onClick={props.onClick}>My Order</HeaderButton>
             </header>
             <div className={styles[`main-image`]}>
                 <img src={mealImg} alt='loading' />

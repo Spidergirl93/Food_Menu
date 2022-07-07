@@ -1,5 +1,5 @@
 //React imports
-import React from 'react';
+import React, {useState} from 'react';
 
 //Component imports
 import Header from './components/Layout/Header';
@@ -12,10 +12,22 @@ import Cart from './components/Cart/Cart';
 
 //Main component
 function App() {
+
+  const [cartShown, setCartShown] = useState(false);
+
+  const showCart = () => {
+    setCartShown(true);
+  };
+
+  const hideCart = () => {
+    setCartShown(false);
+  };
+
+
   return (
     <React.Fragment>
-      <Cart />
-      <Header/>
+      {cartShown && <Cart onCancel={hideCart} />}
+      <Header onClick={showCart}/>
       <main>
         <Meals/>
       </main>
