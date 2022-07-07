@@ -38,6 +38,7 @@ const AvailableMeals = () => {
 
     const dummyMeals = DUMMY_MEALS.map(meal => 
     <MealList 
+    id={meal.id}
     key={meal.id} 
     name={meal.name} 
     description={meal.description}
@@ -49,8 +50,7 @@ const AvailableMeals = () => {
                 <ul>
                     {dummyMeals}
                 </ul>
-            </Card>
-            
+            </Card>  
         </section>
       );
 };
