@@ -4,6 +4,7 @@ import React from 'react';
 //Component imports
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
+import Cart from './components/Cart/Cart';
 
 
 //CSS imports
@@ -13,6 +14,7 @@ import Meals from './components/Meals/Meals';
 function App() {
   return (
     <React.Fragment>
+      <Cart />
       <Header/>
       <main>
         <Meals/>
