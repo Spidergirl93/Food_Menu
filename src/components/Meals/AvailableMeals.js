@@ -1,5 +1,6 @@
 //Component imports
 import Card from '../UI/Card';
+import MealList from './MealList';
 
 //CSS imports 
 import styles from './AvailableMeals.module.css';
@@ -35,9 +36,12 @@ const DUMMY_MEALS = [
 //Main component
 const AvailableMeals = () => {
 
-    const dummyMeals = DUMMY_MEALS.map(meal => <li key={meal.id}>
-        {meal.name}
-    </li>)
+    const dummyMeals = DUMMY_MEALS.map(meal => 
+    <MealList 
+    key={meal.id} 
+    name={meal.name} 
+    description={meal.description}
+    price={meal.price} />)
 
       return(
         <section className={styles.meals}>
