@@ -7,6 +7,7 @@ import styles from './Cart.module.css';
 //Main component 
 const Cart = (props) => {
 
+
     const cartItems = <ul className={styles[`cart-items`]}>{
         [{
             id: 'm1',
@@ -27,7 +28,7 @@ const Cart = (props) => {
             </div>
             <div className={styles.actions}>
                 <button className={styles[`button--alt`]} onClick={props.onCancel}>Cancel</button>
-                <button className={styles[`button`]}>Order</button>
+                <button className={styles[`button`]} >Order</button>
             </div>
         </Modal>
     );
