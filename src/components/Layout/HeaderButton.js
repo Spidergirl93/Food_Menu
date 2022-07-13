@@ -1,5 +1,5 @@
 //React imports
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 //Component imports
 import CartIcon from '../Cart/CartIcon'
@@ -11,15 +11,32 @@ import styles from './HeaderButton.module.css';
 //Main component
 const HeaderButton = props => {
 
-    const context = useContext(CartContext);
+    const [bumpButton, setBumpButton] = useState(false);
 
-    const itemAmount = context.items.reduce((initialAmount, item) => {
+    const context = useContext(CartContext);
+    const {items} = context;
+
+    const itemAmount = items.reduce((initialAmount, item) => {
         return initialAmount + item.amount;
     }, 0);
 
+    const buttonStyle = `${styles.button} ${bumpButton ? styles.bump : ''}`;
+    useEffect(() => {
+        if (items.length === 0) {
+            return;
+        }
+        setBumpButton(true);
+        const timer = setTimeout(() => {
+            setBumpButton(false);
+        }, 300);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [items]);
 
     return(
-        <button className={styles.button} onClick={props.onClick}>
+        <button className={buttonStyle} onClick={props.onClick}>
             <span className={styles.icon}>
                 <CartIcon/>
             </span>
